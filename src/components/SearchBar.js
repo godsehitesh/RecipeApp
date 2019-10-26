@@ -17,11 +17,12 @@ class SearchBar extends React.Component{
 }
 const styles = StyleSheet.create({
     container:{
-        borderWidth: 1,
-        borderColor: 'gray',
         borderRadius: 10,
         flexDirection: 'row',
-        alignItems: 'center'
+        alignItems: 'center',
+        backgroundColor: 'white',
+        borderWidth: 1,
+        borderColor: '#805A3B'
     },
     image:{
         height: deviceHeight*0.045,

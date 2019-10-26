@@ -751,12 +751,28 @@ class MainScreen extends React.Component {
     }
   
     addItem(itemDetails){
-      tempCart = this.state.itemsAdded;
+      var tempCart = this.state.itemsAdded;
       tempCart.push(itemDetails);
   
       this.setState({
         itemsAdded: tempCart  
       });
+
+      console.log('itemsAdded:');
+      console.log(this.state.itemsAdded);
+    }
+
+    removeItem(itemName){
+      var tempCart = this.state.itemsAdded;
+      tempCart = tempCart.filter(item => item.name!=itemName);
+  
+      this.setState({
+        itemsAdded: tempCart  
+      });
+
+      console.log('itemsAdded:');
+      console.log(this.state.itemsAdded);
+      
     }
   
     renderOption(){
@@ -770,7 +786,7 @@ class MainScreen extends React.Component {
                 extraData={this.state}
                 renderItem={({ item }) =>{ 
                                       if(item.name.includes(this.state.searchTerm)) { 
-                                          return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants} addItem = {() => this.addItem()} imgsrc = {{uri: item.imageURL}}/></View>);
+                                          return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants} addItem = {(item) => this.addItem(item)} removeItem = {(itemName)=> this.removeItem(itemName)} imgsrc = {{uri: item.imageURL}}/></View>);
                                         }else{
                                           return null;
                                         } }}
@@ -784,7 +800,7 @@ class MainScreen extends React.Component {
                   extraData={this.state}
                   renderItem={({ item }) =>{ 
                                         if(item.name.includes(this.state.searchTerm)) { 
-                                            return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {() => this.addItem()} imgsrc = {{uri: item.imageURL}}/></View>);
+                                            return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {(item) => this.addItem(item)} removeItem = {(itemName)=> this.removeItem(itemName)} imgsrc = {{uri: item.imageURL}}/></View>);
                                           }else{
                                             return null;
                                           } }}
@@ -802,7 +818,7 @@ class MainScreen extends React.Component {
                     extraData={this.state}
                     renderItem={({ item }) => { 
                                           if(item.name.includes(this.state.searchTerm)) { 
-                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {() => this.addItem()} imgsrc = {{uri: item.imageURL}}/></View>);
+                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {(item) => this.addItem(item)} removeItem = {(itemName)=> this.removeItem(itemName)} imgsrc = {{uri: item.imageURL}}/></View>);
                                             }else{
                                               return null;
                                             } }}
@@ -816,7 +832,7 @@ class MainScreen extends React.Component {
                     extraData={this.state}
                     renderItem={({ item }) => { 
                                           if(item.name.includes(this.state.searchTerm)) { 
-                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {() => this.addItem()} imgsrc = {{uri: item.imageURL}}/></View>);
+                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {(item) => this.addItem(item)} removeItem = {(itemName)=> this.removeItem(itemName)} imgsrc = {{uri: item.imageURL}}/></View>);
                                             }else{
                                               return null;
                                             } }}
@@ -831,7 +847,7 @@ class MainScreen extends React.Component {
                     extraData={this.state}
                     renderItem={({ item }) => { 
                                           if(item.name.includes(this.state.searchTerm)) { 
-                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {() => this.addItem()} imgsrc = {{uri: item.imageURL}}/></View>);
+                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {(item) => this.addItem(item)} removeItem = {(itemName)=> this.removeItem(itemName)} imgsrc = {{uri: item.imageURL}}/></View>);
                                             }else{
                                               return null;
                                             } }}
@@ -845,7 +861,7 @@ class MainScreen extends React.Component {
                     extraData={this.state}
                     renderItem={({ item }) => { 
                                           if(item.name.includes(this.state.searchTerm)) { 
-                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {() => this.addItem()} imgsrc = {{uri: item.imageURL}}/></View>);
+                                              return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {(item) => this.addItem(item)} removeItem = {(itemName)=> this.removeItem(itemName)} imgsrc = {{uri: item.imageURL}}/></View>);
                                             }else{
                                               return null;
                                             } }}
@@ -861,7 +877,7 @@ class MainScreen extends React.Component {
                 extraData={this.state}
                 renderItem={({ item }) => { 
                                       if(item.name.includes(this.state.searchTerm)) { 
-                                          return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {() => this.addItem()} imgsrc = {{uri: item.imageURL}}/></View>);
+                                          return (<View style = {styles.listItemContainer}><ListItem name = {item.name} wiPrice = {item.withIngrediantPrice} woiPrice = {item.withOutIngrediantsPrice} ingredients = {item.ingrediants}  addItem = {(item) => this.addItem(item)} removeItem = {(itemName)=> this.removeItem(itemName)} imgsrc = {{uri: item.imageURL}}/></View>);
                                         }else{
                                           return null;
                                         } }}
@@ -885,6 +901,22 @@ class MainScreen extends React.Component {
           category: option
         })
       }
+    }
+
+    getCartTotal(){
+      var total = 0;
+
+      if(this.state.itemsAdded.length>0){  
+        this.state.itemsAdded.forEach((item)=>{
+
+            total = total + parseInt(item.price); 
+
+        });
+      }
+
+      return(
+        <Text>Total: Rs.{total}</Text>
+      );
     }
   
     render(){
@@ -972,11 +1004,12 @@ class MainScreen extends React.Component {
                 null
                 }
               </View>
-              {/* <DropDownOptions /> */}
-              {this.renderOption()}
+              <View style = {styles.listContainer}>
+                {this.renderOption()}
+              </View>
               <View style = {styles.cart}>
                 <Text>Items Selected: {this.state.itemsAdded.length}</Text>
-                
+                {this.getCartTotal()}
               </View>
             </View>
             }  
@@ -988,7 +1021,8 @@ class MainScreen extends React.Component {
   const styles = StyleSheet.create({
     container:{
       flex: 1,
-      flexDirection: 'column'
+      flexDirection: 'column',
+      backgroundColor: '#FEF2E4'
     },
     header:{
       backgroundColor: 'grey',
@@ -1014,18 +1048,30 @@ class MainScreen extends React.Component {
       borderWidth: 1,
       borderRadius: 5
     },
+    listContainer:{
+      height: '67%'
+    },
     latterContainer: {
       height:'91%'
     },
     touchableOpac: {
       height: '15%',
       width: '65%',
-      margin: 10
+      margin: 10,
+      backgroundColor: 'white'
     },
     pickersContainer: {
       width: '100%',
       flexDirection: 'row',
       justifyContent: 'center'
+    },
+    cart:{
+      margin: 10,
+      borderRadius: 10,
+      padding: 10,
+      backgroundColor: '#FEF2E4',
+      borderWidth: 1,
+      borderColor: '#805A3B'
     }
   });
   
