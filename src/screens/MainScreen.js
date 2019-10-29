@@ -915,7 +915,7 @@ class MainScreen extends React.Component {
       }
 
       return(
-        <Text>Total: Rs.{total}</Text>
+        <Text style = {{color: '#F45817', fontWeight: 'bold'}}>Total: Rs.{total}</Text>
       );
     }
   
@@ -1007,8 +1007,8 @@ class MainScreen extends React.Component {
               <View style = {styles.listContainer}>
                 {this.renderOption()}
               </View>
-              <View style = {styles.cart}>
-                <Text>Items Selected: {this.state.itemsAdded.length}</Text>
+              <View style = {styles.cart} elevation = {2}>
+                <Text style = {{color:'#F45817', fontWeight: 'bold'}}>Items Selected: {this.state.itemsAdded.length}</Text>
                 {this.getCartTotal()}
               </View>
             </View>
@@ -1025,7 +1025,7 @@ class MainScreen extends React.Component {
       backgroundColor: '#FEF2E4'
     },
     header:{
-      backgroundColor: 'grey',
+      backgroundColor: '#744f30',
       height: '9%',
       borderColor: 'grey',
       borderWidth: 1,
@@ -1042,7 +1042,7 @@ class MainScreen extends React.Component {
     listItemContainer:{
     },
     footer: {
-      backgroundColor: 'grey',
+      backgroundColor: '#744f30',
       height: '9%',
       borderColor: 'grey',
       borderWidth: 1,
@@ -1069,9 +1069,15 @@ class MainScreen extends React.Component {
       margin: 10,
       borderRadius: 10,
       padding: 10,
-      backgroundColor: '#FEF2E4',
-      borderWidth: 1,
-      borderColor: '#805A3B'
+      backgroundColor: '#FDF7FA',
+ 
+      shadowColor: '#805A3B',
+      shadowOffset: {
+        width: 0,
+        height: 3
+      },
+      shadowRadius: 5,
+      shadowOpacity: 1.0
     }
   });
   

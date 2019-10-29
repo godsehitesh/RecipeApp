@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         borderRadius: 10,
         justifyContent: 'space-between',
         height: '100%',
-        shadowColor: '#000000',
+        shadowColor: '#744f30',
         shadowOffset: {
         width: 0,
         height: 3
@@ -32,7 +32,8 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize: 20,
-        marginLeft: 10
+        marginLeft: 10,
+        color: '#744f30'
     },
     image: {
         height: '100%',

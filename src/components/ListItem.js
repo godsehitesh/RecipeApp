@@ -63,10 +63,10 @@ class ListItem extends React.Component{
 
     render(){
         return (
-            <View style ={styles.container} elevation={5}>
+            <View style ={styles.container} elevation={2}>
                 <View style = {styles.upperContainer}>
                     <View style = {styles.liElements}>
-                        <Text style = {{fontWeight: 'bold', fontSize: 16}}>{this.props.name}</Text>
+                        <Text style = {{fontWeight: 'bold', fontSize: 16, color: '#744f30'}}>{this.props.name}</Text>
                     
                         <Text style = {styles.liText}>Price: {this.state.price}</Text>
                             
@@ -103,7 +103,9 @@ class ListItem extends React.Component{
                             <Text style = {styles.liText}>{this.state.withIngredients? 'With Ingredients': 'Without Ingredients'}</Text>
                             <Switch
                                 onValueChange = {() => this.toggleSwitch()}
-                                value = {this.state.withIngredients}/>
+                                value = {this.state.withIngredients}
+                                trackColor = '#FD974F'
+                                />
                         </View>
                     </View>
                     <Image resizeMode = 'cover' source = {this.props.imgsrc} style = {styles.image}/>
@@ -179,7 +181,8 @@ const styles = StyleSheet.create({
         },
         shadowRadius: 5,
         shadowOpacity: 1.0,
-        padding: 10
+        padding: 10,
+        backgroundColor: '#FDF7FA'
     },
     liText:{
         fontSize: 14,
