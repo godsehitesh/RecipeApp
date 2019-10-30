@@ -888,18 +888,20 @@ class MainScreen extends React.Component {
       }
     }
   
-    setOption(option){
-      if(option=='Mains'){
+    setOption(option, subOption){
+      if(option == 'Mains'){
         this.setState({
           selectedOption: option,
           category: option,
-          subCategory: 'VegCurries'
+          subCategory: subOption
         })
       }else{
         this.setState({
           selectedOption: option,
-          category: option
-        })
+          category: option,
+          subCategory: '',
+          vegNonveg: subOption
+        });
       }
     }
 
@@ -918,6 +920,94 @@ class MainScreen extends React.Component {
         <Text style = {{color: '#F45817', fontWeight: 'bold'}}>Total: Rs.{total}</Text>
       );
     }
+
+    renderSubcategory(){
+      switch(this.state.selectedOption){
+        case 'Starters':
+          return (
+            <View style = {styles.rowOne}>
+              {this.state.selectedOption == 'Starters'&&this.state.vegNonveg =='Veg'?
+                <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
+                  <Text style = {{color: '#FDF7FA'}}>Veg</Text>
+                </TouchableOpacity>:
+                <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
+                  <Text style = {{color: '#F45817'}}>Veg</Text>
+                </TouchableOpacity>
+              }
+              {this.state.selectedOption == 'Starters'&&this.state.vegNonveg =='Nonveg'?
+               <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Starters', 'Nonveg')}>
+                 <Text style = {{color: '#FDF7FA'}}>Nonveg</Text>
+              </TouchableOpacity>:
+              <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Starters', 'Nonveg')}>
+                <Text style = {{color: '#F45817'}}>Nonveg</Text>
+              </TouchableOpacity>
+              }
+            </View>
+          );
+
+        case 'Mains':
+          return(
+            <View style = {styles.rowOne}>
+              {this.state.selectedOption == 'Mains'&&this.state.subCategory =='VegCurries'?
+              <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
+              <Text style = {{color: '#FDF7FA'}}>VegCurries</Text>
+              </TouchableOpacity>:
+              <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
+                <Text style = {{color: '#F45817'}}>VegCurries</Text>
+              </TouchableOpacity>
+              }
+              {this.state.selectedOption == 'Mains'&&this.state.subCategory =='NonvegCurries'?
+                <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'NonvegCurries')}>
+                  <Text style = {{color: '#FDF7FA'}}>NonvegCurries</Text>
+                </TouchableOpacity>:
+              <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'NonvegCurries')}>
+                <Text style = {{color: '#F45817'}}>NonvegCurries</Text>
+              </TouchableOpacity>
+              }
+              {this.state.selectedOption == 'Mains'&&this.state.subCategory =='RiceBiryani'?
+                <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'RiceBiryani')}>
+                  <Text style = {{color: '#FDF7FA'}}>RiceBiryani</Text>
+                </TouchableOpacity>:
+              <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'RiceBiryani')}>
+                <Text style = {{color: '#F45817'}}>RiceBiryani</Text>
+              </TouchableOpacity>
+              }
+              {this.state.selectedOption == 'Mains'&&this.state.subCategory =='Rotis'?
+              <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'Rotis')}>
+              <Text style = {{color: '#FDF7FA'}}>Rotis</Text>
+            </TouchableOpacity>:
+              <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'Rotis')}>
+                <Text style = {{color: '#F45817'}}>Rotis</Text>
+              </TouchableOpacity>
+              }
+            </View>
+          );
+          
+        default:
+          return null;
+      }
+    }
+
+    renderList(){
+      
+      switch(this.state.selectedOption){
+
+        case 'Starters':
+            return(<View style = {{height: '61%'}}>
+              {this.renderOption()}
+            </View>);
+
+        case 'Mains':
+          return(<View style = {{height: '58.4%'}}>
+                  {this.renderOption()}
+                </View>);
+
+        default:
+            return(<View style = {{height: '68%'}}>
+              {this.renderOption()}
+            </View>);
+      }
+    }
   
     render(){
       console.log('searchTerm: '+this.state.searchTerm);
@@ -928,13 +1018,13 @@ class MainScreen extends React.Component {
             <View>
               <View style = {styles.header} />
               <View style = {styles.optionsContainer}>
-                  <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.setOption('Starters')}>
+                  <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.setOption('Starters', 'Veg')}>
                     <Option option = 'Starters' imgsrc = {require('../assets/starters.jpg')} />
                   </TouchableOpacity>
-                  <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.setOption('Mains')}>
+                  <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.setOption('Mains', 'VegCurries')}>
                     <Option option = 'Mains' imgsrc = {require('../assets/mains.jpg')}/>
                   </TouchableOpacity>
-                  <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.setOption('Soups')}>
+                  <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.setOption('Soups', '')}>
                     <Option option = 'Soups' imgsrc = {require('../assets/soups.jpeg')}/>  
                   </TouchableOpacity>
               </View>
@@ -945,68 +1035,36 @@ class MainScreen extends React.Component {
               <View style={styles.searchBarContainer}>
                 <SearchBar setSearchTerm = {(term) => this.setSearchTerm(term)}/>
               </View>
-              <View style={styles.pickersContainer}>
-                  <Picker
-                    selectedValue={this.state.category}
-                    style={{height: 50, width: deviceWidth*0.34}}
-                    onValueChange={(itemValue, itemIndex) =>
-                      this.setState({
-                        category: itemValue,
-                        selectedOption: itemValue
-                      })
-                    }>
-                    <Picker.Item label="Starters" value="Starters" />
-                    <Picker.Item label="Mains" value="Mains" />
-                    <Picker.Item label="Soups" value="Soups" />
-                  </Picker>
-                {this.state.category=='Mains'&&this.state.vegNonveg=='Veg'?
-                <Picker
-                  selectedValue={this.state.subCategory}
-                  style={{height: 50, width: deviceWidth*0.35}}
-                  onValueChange={(itemValue, itemIndex) =>
-                    this.setState({
-                      subCategory: itemValue
-                    })
-                  }>
-                  <Picker.Item label="VegCurries" value="VegCurries" />
-                  <Picker.Item label="RiceBiryani" value="RiceBiryani" />
-                  <Picker.Item label="Rotis" value="Rotis" />
-                </Picker>:
-                  null
-                }
-                {this.state.category=='Mains'&&this.state.vegNonveg=='Nonveg'?
-                <Picker
-                  selectedValue={this.state.subCategory}
-                  style={{height: 50, width:  deviceWidth*0.35}}
-                  onValueChange={(itemValue, itemIndex) =>
-                    this.setState({
-                      subCategory: itemValue
-                    })
-                  }>
-                  <Picker.Item label="NonvegCurries" value="NonvegCurries" />
-                  <Picker.Item label="RiceBiryani" value="RiceBiryani" />
-                  <Picker.Item label="Rotis" value="Rotis" />
-                </Picker>:
-                  null
-                }
-                {this.state.category=='Mains'||this.state.category=='Starters'?
-                <Picker
-                  selectedValue={this.state.vegNonveg}
-                  style={{height: 50, width: deviceWidth*0.3}}
-                  onValueChange={(itemValue, itemIndex) =>
-                    this.setState({
-                      vegNonveg: itemValue
-                    })
-                  }>
-                  <Picker.Item label="Veg" value="Veg" />
-                  <Picker.Item label="NonVeg" value="Nonveg" />
-                </Picker>:
-                null
-                }
+              <View style={styles.labelsContainer}>
+                  <View style = {styles.rowOne}>
+                      {this.state.selectedOption == 'Starters' ?
+                        <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
+                          <Text style = {{color: '#FDF7FA'}}>Starters</Text>
+                        </TouchableOpacity>:
+                        <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
+                          <Text style = {{color: '#F45817'}}>Starters</Text>
+                        </TouchableOpacity>
+                      }
+                      {this.state.selectedOption == 'Mains' ?
+                        <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
+                          <Text style = {{color: '#FDF7FA'}}>Mains</Text>
+                        </TouchableOpacity>:
+                        <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
+                          <Text style = {{color: '#F45817'}}>Mains</Text>
+                        </TouchableOpacity>
+                      }
+                      {this.state.selectedOption == 'Soups' ?
+                          <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Soups', '')}>
+                            <Text style = {{color: '#FDF7FA'}}>Soups</Text>
+                          </TouchableOpacity>:
+                          <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Soups', '')}>
+                           <Text style = {{color: '#F45817'}}>Soups</Text>
+                          </TouchableOpacity>
+                      }
+                  </View>
+                  {this.renderSubcategory()}
               </View>
-              <View style = {styles.listContainer}>
-                {this.renderOption()}
-              </View>
+              {this.renderList()}
               <View style = {styles.cart} elevation = {2}>
                 <Text style = {{color:'#F45817', fontWeight: 'bold'}}>Items Selected: {this.state.itemsAdded.length}</Text>
                 {this.getCartTotal()}
@@ -1022,7 +1080,7 @@ class MainScreen extends React.Component {
     container:{
       flex: 1,
       flexDirection: 'column',
-      backgroundColor: '#FEF2E4'
+      backgroundColor: '#FDF7FA'
     },
     header:{
       backgroundColor: '#744f30',
@@ -1039,6 +1097,30 @@ class MainScreen extends React.Component {
       alignItems: 'center',
       height: '82%'
     },
+    rowOne:{
+      flexDirection: 'row',
+      justifyContent: 'space-around',
+      margin: 5
+    },
+    optionLabel: {
+      backgroundColor:'#FDF7FA',
+      width: '23%',
+      alignItems:'center',
+      justifyContent: 'center',
+      borderRadius: 20,
+      padding: 5,
+      borderWidth: 1,
+      borderColor: '#F45817'
+
+    },
+    selectedOptionLabel: {
+      backgroundColor: '#F45817',
+      width: '23%',
+      alignItems:'center',
+      justifyContent: 'center',
+      borderRadius: 20,
+      padding: 5,  
+    },
     listItemContainer:{
     },
     footer: {
@@ -1049,7 +1131,7 @@ class MainScreen extends React.Component {
       borderRadius: 5
     },
     listContainer:{
-      height: '67%'
+      height: '59%'
     },
     latterContainer: {
       height:'91%'
@@ -1060,9 +1142,8 @@ class MainScreen extends React.Component {
       margin: 10,
       backgroundColor: 'white'
     },
-    pickersContainer: {
+    labelsContainer: {
       width: '100%',
-      flexDirection: 'row',
       justifyContent: 'center'
     },
     cart:{

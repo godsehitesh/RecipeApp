@@ -173,7 +173,7 @@ class ListItem extends React.Component{
 const styles = StyleSheet.create({
     container: {
         borderRadius: 10,
-        margin: 10,
+        margin: 5,
         shadowColor: '#805A3B',
         shadowOffset: {
           width: 0,

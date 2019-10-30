@@ -35,7 +35,7 @@ const MainNavigator = createStackNavigator({
   
 },
 {
-  initialRouteName: 'Start',
+  initialRouteName: 'Start'
 });
 
 const App = createAppContainer(MainNavigator);
