@@ -917,7 +917,7 @@ class MainScreen extends React.Component {
       }
 
       return(
-        <Text style = {{color: '#F45817', fontWeight: 'bold'}}>Total: Rs.{total}</Text>
+        <Text style = {{fontWeight: 'bold'}}>Total: Rs.{total}</Text>
       );
     }
 
@@ -928,7 +928,7 @@ class MainScreen extends React.Component {
             <View style = {styles.rowOne}>
               {this.state.selectedOption == 'Starters'&&this.state.vegNonveg =='Veg'?
                 <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
-                  <Text style = {{color: '#FDF7FA'}}>Veg</Text>
+                  <Text style = {{color: 'white'}}>Veg</Text>
                 </TouchableOpacity>:
                 <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
                   <Text style = {{color: '#F45817'}}>Veg</Text>
@@ -936,7 +936,7 @@ class MainScreen extends React.Component {
               }
               {this.state.selectedOption == 'Starters'&&this.state.vegNonveg =='Nonveg'?
                <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Starters', 'Nonveg')}>
-                 <Text style = {{color: '#FDF7FA'}}>Nonveg</Text>
+                 <Text style = {{color: 'white'}}>Nonveg</Text>
               </TouchableOpacity>:
               <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Starters', 'Nonveg')}>
                 <Text style = {{color: '#F45817'}}>Nonveg</Text>
@@ -950,7 +950,7 @@ class MainScreen extends React.Component {
             <View style = {styles.rowOne}>
               {this.state.selectedOption == 'Mains'&&this.state.subCategory =='VegCurries'?
               <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
-              <Text style = {{color: '#FDF7FA'}}>VegCurries</Text>
+              <Text style = {{color: 'white'}}>VegCurries</Text>
               </TouchableOpacity>:
               <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
                 <Text style = {{color: '#F45817'}}>VegCurries</Text>
@@ -958,7 +958,7 @@ class MainScreen extends React.Component {
               }
               {this.state.selectedOption == 'Mains'&&this.state.subCategory =='NonvegCurries'?
                 <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'NonvegCurries')}>
-                  <Text style = {{color: '#FDF7FA'}}>NonvegCurries</Text>
+                  <Text style = {{color: 'white'}}>NonvegCurries</Text>
                 </TouchableOpacity>:
               <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'NonvegCurries')}>
                 <Text style = {{color: '#F45817'}}>NonvegCurries</Text>
@@ -966,7 +966,7 @@ class MainScreen extends React.Component {
               }
               {this.state.selectedOption == 'Mains'&&this.state.subCategory =='RiceBiryani'?
                 <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'RiceBiryani')}>
-                  <Text style = {{color: '#FDF7FA'}}>RiceBiryani</Text>
+                  <Text style = {{color: 'white'}}>RiceBiryani</Text>
                 </TouchableOpacity>:
               <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'RiceBiryani')}>
                 <Text style = {{color: '#F45817'}}>RiceBiryani</Text>
@@ -974,7 +974,7 @@ class MainScreen extends React.Component {
               }
               {this.state.selectedOption == 'Mains'&&this.state.subCategory =='Rotis'?
               <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'Rotis')}>
-              <Text style = {{color: '#FDF7FA'}}>Rotis</Text>
+              <Text style = {{color: 'white'}}>Rotis</Text>
             </TouchableOpacity>:
               <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'Rotis')}>
                 <Text style = {{color: '#F45817'}}>Rotis</Text>
@@ -1039,7 +1039,7 @@ class MainScreen extends React.Component {
                   <View style = {styles.rowOne}>
                       {this.state.selectedOption == 'Starters' ?
                         <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
-                          <Text style = {{color: '#FDF7FA'}}>Starters</Text>
+                          <Text style = {{color: 'white'}}>Starters</Text>
                         </TouchableOpacity>:
                         <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Starters', 'Veg')}>
                           <Text style = {{color: '#F45817'}}>Starters</Text>
@@ -1047,7 +1047,7 @@ class MainScreen extends React.Component {
                       }
                       {this.state.selectedOption == 'Mains' ?
                         <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
-                          <Text style = {{color: '#FDF7FA'}}>Mains</Text>
+                          <Text style = {{color: 'white'}}>Mains</Text>
                         </TouchableOpacity>:
                         <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Mains', 'VegCurries')}>
                           <Text style = {{color: '#F45817'}}>Mains</Text>
@@ -1055,7 +1055,7 @@ class MainScreen extends React.Component {
                       }
                       {this.state.selectedOption == 'Soups' ?
                           <TouchableOpacity style = {styles.selectedOptionLabel} onPress = {()=>this.setOption('Soups', '')}>
-                            <Text style = {{color: '#FDF7FA'}}>Soups</Text>
+                            <Text style = {{color: 'white'}}>Soups</Text>
                           </TouchableOpacity>:
                           <TouchableOpacity style = {styles.optionLabel} onPress = {()=>this.setOption('Soups', '')}>
                            <Text style = {{color: '#F45817'}}>Soups</Text>
@@ -1065,8 +1065,8 @@ class MainScreen extends React.Component {
                   {this.renderSubcategory()}
               </View>
               {this.renderList()}
-              <View style = {styles.cart} elevation = {2}>
-                <Text style = {{color:'#F45817', fontWeight: 'bold'}}>Items Selected: {this.state.itemsAdded.length}</Text>
+              <View style = {styles.cart} elevation = {3}>
+                <Text style = {{fontWeight: 'bold'}}>Items Selected: {this.state.itemsAdded.length}</Text>
                 {this.getCartTotal()}
               </View>
             </View>
@@ -1079,14 +1079,11 @@ class MainScreen extends React.Component {
   const styles = StyleSheet.create({
     container:{
       flex: 1,
-      flexDirection: 'column',
-      backgroundColor: '#FDF7FA'
+      flexDirection: 'column'
     },
     header:{
-      backgroundColor: '#744f30',
+      backgroundColor: '#F45817',
       height: '9%',
-      borderColor: 'grey',
-      borderWidth: 1,
       borderRadius: 5
     },
     searchBarContainer: {
@@ -1103,7 +1100,6 @@ class MainScreen extends React.Component {
       margin: 5
     },
     optionLabel: {
-      backgroundColor:'#FDF7FA',
       width: '23%',
       alignItems:'center',
       justifyContent: 'center',
@@ -1124,10 +1120,8 @@ class MainScreen extends React.Component {
     listItemContainer:{
     },
     footer: {
-      backgroundColor: '#744f30',
+      backgroundColor: '#F45817',
       height: '9%',
-      borderColor: 'grey',
-      borderWidth: 1,
       borderRadius: 5
     },
     listContainer:{
@@ -1150,7 +1144,6 @@ class MainScreen extends React.Component {
       margin: 10,
       borderRadius: 10,
       padding: 10,
-      backgroundColor: '#FDF7FA',
  
       shadowColor: '#805A3B',
       shadowOffset: {
@@ -1158,7 +1151,9 @@ class MainScreen extends React.Component {
         height: 3
       },
       shadowRadius: 5,
-      shadowOpacity: 1.0
+      shadowOpacity: 1.0,
+      borderTopWidth: 1,
+      borderColor: '#B6B6B6'
     }
   });
   

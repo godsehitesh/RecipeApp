@@ -32,8 +32,7 @@ const styles = StyleSheet.create({
     },
     text:{
         fontSize: 20,
-        marginLeft: 10,
-        color: '#744f30'
+        marginLeft: 10
     },
     image: {
         height: '100%',

@@ -63,10 +63,10 @@ class ListItem extends React.Component{
 
     render(){
         return (
-            <View style ={styles.container} elevation={2}>
+            <View style ={styles.container}>
                 <View style = {styles.upperContainer}>
                     <View style = {styles.liElements}>
-                        <Text style = {{fontWeight: 'bold', fontSize: 16, color: '#744f30'}}>{this.props.name}</Text>
+                        <Text style = {{fontWeight: 'bold', fontSize: 16}}>{this.props.name}</Text>
                     
                         <Text style = {styles.liText}>Price: {this.state.price}</Text>
                             
@@ -119,12 +119,17 @@ class ListItem extends React.Component{
                             <Image style = {{width: 20, height: 20}} source = {require('../assets/downArrow.png')} />
                         </View>
                     </TouchableOpacity>
-                    {this.state.added ?
-                    <TouchableOpacity style = {{    height: deviceHeight*0.045, backgroundColor: '#C60000',  width: '35%', alignItems: 'center', justifyContent: 'center', borderRadius: 10}} onPress = {() => this.removeItem()}>
-                        <Text style = {{color: 'white', fontSize: 14}}>Remove</Text>
-                    </TouchableOpacity>:
-                    <TouchableOpacity style = {{    height: deviceHeight*0.045, backgroundColor: '#C60000',   width: '35%', alignItems: 'center', justifyContent: 'center', borderRadius: 10}} onPress = {() => this.addItem()}>
-                        <Text style = {{color: 'white', fontSize: 14}}>Add</Text>
+                    {this.state.added ?                
+                     <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.removeItem()}>
+                        
+                            <Text style = {{color: '#C60000', fontSize: 14}}>Remove</Text>
+                        
+                    </TouchableOpacity>
+                    :
+                    <TouchableOpacity style = {styles.touchableOpac} onPress = {() => this.addItem()}>
+                        
+                            <Text style = {{color: '#62940D', fontSize: 14}}>Add</Text>
+                    
                     </TouchableOpacity>
                     }
                 
@@ -132,7 +137,7 @@ class ListItem extends React.Component{
                 {this.state.showIngredients ?
                     <View style = {styles.ingredientsContainer}>
                         <View style = {{}}>
-                            <Text style = {styles.liText}>Name</Text>
+                            <Text style = {styles.liHeader}>Name</Text>
                             {this.props.ingredients.items.map((item)=>{
                                 return (
                                     <Text style = {styles.liText}>{item.name}</Text>
@@ -142,7 +147,7 @@ class ListItem extends React.Component{
                             }
                         </View>
                         <View style = {{}}>
-                            <Text style = {styles.liText}>Weight</Text>
+                            <Text style = {styles.liHeader}>Weight</Text>
                             {this.props.ingredients.items.map((item)=>{
                                 return (
                                     <Text style = {styles.liText}>{item.weight}</Text>
@@ -152,7 +157,7 @@ class ListItem extends React.Component{
                             }
                         </View>
                         <View style = {{}}>
-                            <Text style = {styles.liText}>Price</Text>
+                            <Text style = {styles.liHeader}>Price</Text>
                             {this.props.ingredients.items.map((item)=>{
                                 return (
                                     <Text style = {styles.liText}>{item.price}</Text>
@@ -174,19 +179,17 @@ const styles = StyleSheet.create({
     container: {
         borderRadius: 10,
         margin: 5,
-        shadowColor: '#805A3B',
-        shadowOffset: {
-          width: 0,
-          height: 3
-        },
-        shadowRadius: 5,
-        shadowOpacity: 1.0,
         padding: 10,
-        backgroundColor: '#FDF7FA'
+        borderTopWidth: 1,
+        borderColor: '#B6B6B6'
+    },
+    liHeader: {
+        fontSize: 14,
+        fontWeight: 'bold'
     },
     liText:{
         fontSize: 14,
-        color: '#805A3B'
+        color: '#6D6D6D'
     },
     upperContainer: {
         flexDirection: 'row',
@@ -223,6 +226,25 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between',
         margin: 10
+    },
+    touchableOpac:{
+        
+        width: '35%',
+      borderWidth: 1,
+      borderColor: '#B6B6B6',
+      alignItems: 'center', 
+      justifyContent: 'center', 
+      borderRadius: 10,
+      height: deviceHeight*0.045,  
+    },
+    toView:{
+        shadowColor: '#000000',
+      shadowOffset: {
+        width: 2,
+        height: 3
+      },
+      shadowRadius: 5,
+      shadowOpacity: 1.0
     }
 });
 

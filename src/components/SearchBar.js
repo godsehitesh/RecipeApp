@@ -22,7 +22,7 @@ const styles = StyleSheet.create({
         alignItems: 'center',
         backgroundColor: 'white',
         borderWidth: 1,
-        borderColor: '#744f30'
+        borderColor: '#B6B6B6'
     },
     image:{
         height: deviceHeight*0.045,
