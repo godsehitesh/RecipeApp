@@ -1108,9 +1108,7 @@ class MainScreen extends React.Component {
       alignItems:'center',
       justifyContent: 'center',
       borderRadius: 20,
-      padding: 5,
-      borderWidth: 1,
-      borderColor: '#F45817'
+      padding: 5
 
     },
     selectedOptionLabel: {
