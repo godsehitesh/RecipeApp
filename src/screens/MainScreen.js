@@ -1066,7 +1066,11 @@ class MainScreen extends React.Component {
               </View>
               {this.renderList()}
               <View style = {styles.cart} elevation = {3}>
-                <Text style = {{fontWeight: 'bold'}}>Items Selected: {this.state.itemsAdded.length}</Text>
+                <View style ={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <Text style = {{fontWeight: 'bold'}}>Items Selected: {this.state.itemsAdded.length}</Text>
+                  <Text style = {{fontWeight: 'bold', marginRight: 10}}>View Cart</Text>
+                </View>
+                
                 {this.getCartTotal()}
               </View>
             </View>
