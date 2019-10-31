@@ -921,6 +921,22 @@ class MainScreen extends React.Component {
       );
     }
 
+    getGreenCartTotal(){
+      var total = 0;
+
+      if(this.state.itemsAdded.length>0){  
+        this.state.itemsAdded.forEach((item)=>{
+
+            total = total + parseInt(item.price); 
+
+        });
+      }
+
+      return(
+        <Text style = {{fontWeight: 'bold', color: 'white'}}>Total: Rs.{total}</Text>
+      );
+    }
+
     renderSubcategory(){
       switch(this.state.selectedOption){
         case 'Starters':
@@ -993,17 +1009,17 @@ class MainScreen extends React.Component {
       switch(this.state.selectedOption){
 
         case 'Starters':
-            return(<View style = {{height: '61%'}}>
+            return(<View style = {{height: deviceHeight*0.54}}>
               {this.renderOption()}
             </View>);
 
         case 'Mains':
-          return(<View style = {{height: '58.4%'}}>
+          return(<View style = {{height: deviceHeight*0.52}}>
                   {this.renderOption()}
                 </View>);
 
         default:
-            return(<View style = {{height: '68%'}}>
+            return(<View style = {{height: deviceHeight*0.6}}>
               {this.renderOption()}
             </View>);
       }
@@ -1065,6 +1081,16 @@ class MainScreen extends React.Component {
                   {this.renderSubcategory()}
               </View>
               {this.renderList()}
+              {this.state.itemsAdded.length>0?
+                <View style = {styles.greenCart} elevation = {3}>
+                <View style ={{flexDirection: 'row', justifyContent: 'space-between'}}>
+                  <Text style = {{fontWeight: 'bold', color: 'white'}}>Items Selected: {this.state.itemsAdded.length}</Text>
+                  <Text style = {{fontWeight: 'bold', marginRight: 10, color: 'white'}}>View Cart</Text>
+                </View>
+                
+                {this.getGreenCartTotal()}
+              </View>
+              :
               <View style = {styles.cart} elevation = {3}>
                 <View style ={{flexDirection: 'row', justifyContent: 'space-between'}}>
                   <Text style = {{fontWeight: 'bold'}}>Items Selected: {this.state.itemsAdded.length}</Text>
@@ -1073,6 +1099,7 @@ class MainScreen extends React.Component {
                 
                 {this.getCartTotal()}
               </View>
+              }
             </View>
             }  
         </View>
@@ -1146,6 +1173,22 @@ class MainScreen extends React.Component {
       margin: 10,
       borderRadius: 10,
       padding: 10,
+ 
+      shadowColor: '#805A3B',
+      shadowOffset: {
+        width: 0,
+        height: 3
+      },
+      shadowRadius: 5,
+      shadowOpacity: 1.0,
+      borderTopWidth: 1,
+      borderColor: '#B6B6B6'
+    },
+    greenCart:{
+      margin: 10,
+      borderRadius: 10,
+      padding: 10,
+      backgroundColor: '#6CA101',
  
       shadowColor: '#805A3B',
       shadowOffset: {
